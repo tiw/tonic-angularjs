@@ -3,7 +3,7 @@ use Tonic\Response;
 
 /**
  * @uri /product
- * @uri /product/:productId/item/:itemId
+ * @uri /product/:productId
  */
 class Product extends Tonic\Resource
 {
@@ -16,10 +16,12 @@ class Product extends Tonic\Resource
 
         $products = array(
             array(
+                'id' => 1,
                 'name' => 'iphone5',
                 'price' => '1234',
             ),
             array(
+                'id' => 2,
                 'name' => 'galaxy 3',
                 'price' => '3456',
             )
@@ -33,13 +35,14 @@ class Product extends Tonic\Resource
      * @method get
      * @json
      */
-    public function get($productId = null, $itemId)
+    public function get($productId = null)
     {
 
         if (is_null($productId)) {
             return $this->all();
         }
         $product = array(
+            'id' => 1,
             'name' => 'iphone5',
             'price' => '1234',
         );
