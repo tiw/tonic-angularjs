@@ -2,7 +2,7 @@
 
 jsSrcApp.controller('MainCtrl', ['$scope', 'product', function($scope, product) {
   $scope.products = product.Product.query();
-  
+
   $scope.product = new product.Product;
   var scope = $scope;
 
@@ -11,8 +11,8 @@ jsSrcApp.controller('MainCtrl', ['$scope', 'product', function($scope, product) 
 
     console.log(product);
 
-    product.$delete({id : id}, function(product){
+    product.$delete({id: id}, function(product) {
         console.log(product.title);
     });
-  }
+  };
 }]);
