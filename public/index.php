@@ -1,6 +1,6 @@
 <?php
-
 require_once '../vendor/peej/tonic/src/Tonic/Autoloader.php';
+require_once '../src/autoload.php';
 
 $app = new Tonic\Application(array(
     'load' => array('../resources/*.php'),

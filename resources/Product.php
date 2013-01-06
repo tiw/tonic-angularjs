@@ -1,5 +1,6 @@
 <?php
 use Tonic\Response;
+use Product\Model\Product as ProductModel;
 
 /**
  * @uri /product
@@ -13,6 +14,7 @@ class Product extends Tonic\Resource
      */
     public function all()
     {
+        $productOne = new ProductModel();
 
         $products = array(
             array(
@@ -41,6 +43,8 @@ class Product extends Tonic\Resource
         if (is_null($productId)) {
             return $this->all();
         }
+        $productMapper = new \Product\Mapper\Product();
+        $product = $productMapper->findById((int) $productId);
         $product = array(
             'id' => 1,
             'name' => 'iphone5',
